@@ -1,4 +1,6 @@
 /* Round play scripts*/
+
+
 function getComputerChoice() {
   let ComputerChoice = Math.floor(Math.random()* 3)
   switch (ComputerChoice) {
@@ -12,22 +14,28 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-   let playerChoice = "ROCK"
+   let playerChoice = prompt("ROCK, PAPER, SCISSORS?", "ROCK").toUpperCase()
    return playerChoice
 }
 
-function getRoundWinner() {  
-      let ComputerChoice = getComputerChoice()
-      let playerChoice = getPlayerChoice() 
+const playerChoice = getPlayerChoice()
+const ComputerChoice = getComputerChoice()
+
+
+function getRoundWinner(playerChoice, ComputerChoice) {  
+      console.log(playerChoice)
+      console.log(ComputerChoice)
       if (playerChoice == "ROCK" && ComputerChoice == "ROCK" ||
           playerChoice == "PAPER" && ComputerChoice == "PAPER" ||
           playerChoice == "SCISSORS" && ComputerChoice == "SCISSORS") {
       return "It's a draw!"
-      } else if (playerChoice == "ROCK" && ComputerChoice == "SCISSORS" ||
+      } 
+      if (playerChoice == "ROCK" && ComputerChoice == "SCISSORS" ||
                playerChoice == "PAPER" && ComputerChoice == "ROCK" ||
                playerChoice == "SCISSORS" && ComputerChoice == "PAPER") {
       return "You win the round!"
-      } else if (playerChoice == "ROCK" && ComputerChoice == "PAPER" ||
+      } 
+      if (playerChoice == "ROCK" && ComputerChoice == "PAPER" ||
                playerChoice == "PAPER" && ComputerChoice == "SCISSORS" ||
                playerChoice == "SCISSORS" && ComputerChoice == "ROCK") {
       return "The computer won the round!"
@@ -39,7 +47,6 @@ function game() {
 
 /*UI*/
 
-console.log(getComputerChoice())
-console.log(getPlayerChoice())
-console.log(getRoundWinner())
+
+console.log(getRoundWinner(playerChoice, ComputerChoice))
 
